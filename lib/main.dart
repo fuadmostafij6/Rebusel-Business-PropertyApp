@@ -42,8 +42,10 @@ class _MyAppState extends State<MyApp> {
     MyPrefs.getToken().then((value) {
       setState(() {
         token = value;
+        print(token);
       });
     });
+
     super.initState();
   }
 
