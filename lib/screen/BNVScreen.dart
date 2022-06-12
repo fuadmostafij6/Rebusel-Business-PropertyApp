@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rebusel/screen/profile_screen.dart';
 
+import '../model/profile_model.dart';
 import 'chat_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -13,10 +15,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 0;
   final screen = [
     const ChatScreen(),
-    const ChatScreen(),
-    const ChatScreen(),
-    const ChatScreen(),
-    const ChatScreen(),
+    ChatScreen(),
+    ChatScreen(),
+    ChatScreen(),
+    ProfileScreen()
   ];
   @override
   Widget build(BuildContext context) {

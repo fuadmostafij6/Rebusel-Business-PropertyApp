@@ -6,10 +6,11 @@ import 'package:http/http.dart';
 import 'package:rebusel/utils/my_pref.dart';
 
 import '../model/member_model.dart';
+import '../model/profile_model.dart';
 import '../utils/constace.dart';
 
-class MemberProvider with ChangeNotifier {
-  MemberModel? memberModel;
+class ProfileProvider with ChangeNotifier {
+  ProfileModel? profileModel;
   BuildContext? context;
   bool _error = true;
   bool get error => _error;
@@ -30,7 +31,7 @@ class MemberProvider with ChangeNotifier {
     });
     final res = await get(
         Uri.parse(
-          "${Constance.urlHost}/conversations/index",
+          "${Constance.urlHost}/profile",
         ),
         headers: {
           'Authorization': 'Bearer $token',
@@ -41,7 +42,7 @@ class MemberProvider with ChangeNotifier {
     if (res.statusCode == 200) {
       try {
         _map = json.decode(res.body);
-        memberModel = MemberModel.fromJson(_map);
+        profileModel = ProfileModel.fromJson(_map);
 
         _error = false;
         notifyListeners();

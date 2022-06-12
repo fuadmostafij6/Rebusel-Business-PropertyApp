@@ -5,11 +5,13 @@ import 'package:provider/provider.dart';
 import 'package:rebusel/screen/BNVScreen.dart';
 import 'package:rebusel/screen/introduction_page.dart';
 import 'package:rebusel/utils/my_pref.dart';
+import 'Provider/ProfileProvider.dart';
 import 'Provider/memberProvider.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => MemberProvider()),
+    ChangeNotifierProvider(create: (_) => ProfileProvider()),
   ], child: const MyApp()));
 }
 

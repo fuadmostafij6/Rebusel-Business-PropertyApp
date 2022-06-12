@@ -6,10 +6,14 @@ import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 import 'package:rebusel/Provider/memberProvider.dart';
 import 'package:rebusel/model/messegesModel.dart';
+import 'package:rebusel/model/profile_model.dart';
 import 'package:rebusel/utils/my_pref.dart';
 
 class SendMessage extends StatefulWidget {
-  const SendMessage({Key? key}) : super(key: key);
+  final String id;
+  final String name;
+  const SendMessage({Key? key, required this.id, required this.name})
+      : super(key: key);
 
   @override
   State<SendMessage> createState() => _SendMessageState();
@@ -17,6 +21,7 @@ class SendMessage extends StatefulWidget {
 
 class _SendMessageState extends State<SendMessage> {
   MemberProvider memberProvider = MemberProvider();
+  ProfileModel? profileModel;
 
   TextEditingController sendMessageController = TextEditingController();
 
@@ -54,8 +59,9 @@ class _SendMessageState extends State<SendMessage> {
       headers: {
         'Authorization': 'Bearer $token',
       },
-      body: {'cid': '224', 'message': msg},
+      body: {'cid': widget.id, 'message': msg},
     );
+    print(widget.id);
     print(response.body);
   }
 
@@ -69,7 +75,7 @@ class _SendMessageState extends State<SendMessage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Chat"),
+        title: Text(widget.name),
       ),
       body: Column(
         children: [
@@ -115,6 +121,7 @@ class _SendMessageState extends State<SendMessage> {
                                 date: DateTime.now(),
                                 isSentByMe: true);
                             setState(() => message.add(messages));
+                            sendMessage(sendMessageController.text);
                             sendMessageController.text = "";
                           },
                           icon: const Icon(

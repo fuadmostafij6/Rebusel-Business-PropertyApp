@@ -49,6 +49,7 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       drawer: const Drawer(),
       body: SingleChildScrollView(
+        physics: AlwaysScrollableScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,8 +149,11 @@ class _ChatScreenState extends State<ChatScreen> {
                                     onTap: () => Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                const SendMessage())),
+                                            builder: (context) => SendMessage(
+                                                  name:
+                                                      '${value.memberModel!.conversations![index].members![index2].name}',
+                                                  id: '${value.memberModel!.conversations![index].members![index2].userId}',
+                                                ))),
                                     child: ListTile(
                                       trailing: Column(
                                         children: [
