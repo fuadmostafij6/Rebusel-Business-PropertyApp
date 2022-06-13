@@ -11,6 +11,7 @@ import 'package:rebusel/screen/forgot_password_screen.dart';
 import 'package:rebusel/utils/my_pref.dart';
 
 import '../model/login_model.dart';
+import 'BNVScreen.dart';
 import 'chat_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -256,7 +257,7 @@ class _LoginScreenState extends State<LoginScreen> {
               textColor: Colors.white,
               fontSize: 16.0);
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => ChatScreen(),
+            builder: (context) => BottomNavBar(),
           ));
         } else if (_loginRes.status == 400) {
           var error = json.decode(response.body);

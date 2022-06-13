@@ -75,6 +75,7 @@ class _SendMessageState extends State<SendMessage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple[800],
         title: Text(widget.name),
       ),
       body: Column(
@@ -130,7 +131,7 @@ class _SendMessageState extends State<SendMessage> {
                           )),
                     ),
                     contentPadding: const EdgeInsets.all(12),
-                    hintText: ""),
+                    hintText: "Send message"),
               ),
             ),
           )

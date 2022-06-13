@@ -40,11 +40,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ],
         iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
+        elevation: 3,
         backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
-          "Profile",
+          "My Profile",
           style: TextStyle(color: Colors.black, fontSize: 16),
         ),
       ),
@@ -52,7 +52,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: SingleChildScrollView(
         child: Consumer<ProfileProvider>(builder: (context, value, child) {
           if (value.profileModel == null) {
-            return const CircularProgressIndicator();
+            return Center(child: const CircularProgressIndicator(color: Colors.purple,));
           } else {
             return value.error
                 ? Text(value.errorMessage)
@@ -61,6 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        SizedBox(height: 70,),
                         CircleAvatar(
                           backgroundColor: Colors.transparent,
                           radius: 60.0,
@@ -73,8 +74,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 : "https://cdn1.iconfinder.com/data/icons/get-me-home/512/account_avater_male_person_profile_user_logged-512.png"),
                           ),
                         ),
-                        Text("${value.profileModel!.profile!.fullName}"),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("${value.profileModel!.profile!.fullName}",style: TextStyle(fontSize: 18,color: Colors.black),),
+                        ),
                         Text("${value.profileModel!.profile!.email}"),
+                        SizedBox(height: 10,),
                         Text("${value.profileModel!.profile!.phone}"),
                         const SizedBox(
                           height: 15.0,

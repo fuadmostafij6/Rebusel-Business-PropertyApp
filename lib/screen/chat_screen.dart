@@ -125,7 +125,10 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
             Consumer<MemberProvider>(builder: (context, value, child) {
               if (value.memberModel == null) {
-                return const CircularProgressIndicator();
+                return Padding(
+                  padding: const EdgeInsets.only(top: 100.0,left: 60),
+                  child: const CircularProgressIndicator(color: Colors.purple,),
+                );
               } else {
                 return value.memberModel!.conversations!.isEmpty && !value.error
                     ? const Center(

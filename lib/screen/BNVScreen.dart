@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:rebusel/screen/profile_screen.dart';
+import 'package:rebusel/screen/property_screen.dart';
+import 'package:rebusel/screen/wallet_screen.dart';
 
 import '../model/profile_model.dart';
 import 'chat_screen.dart';
+import 'order_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
@@ -15,9 +18,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 0;
   final screen = [
     const ChatScreen(),
-    ChatScreen(),
-    ChatScreen(),
-    ChatScreen(),
+    MyPropertyScreen(),
+    Example(),
+    WalletScreen(),
     ProfileScreen()
   ];
   @override
