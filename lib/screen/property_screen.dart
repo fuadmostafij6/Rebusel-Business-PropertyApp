@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:rebusel/controller/property_controller.dart';
 
 class MyPropertyScreen extends StatefulWidget {
@@ -20,12 +21,24 @@ class _MyPropertyScreenState extends State<MyPropertyScreen> {
       backgroundColor: Colors.white,
 
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [HexColor("#29AAE1"), HexColor("#283B8E"),HexColor("#3454D1")],
+              begin: const FractionalOffset(0.0, 0.0,),
+
+              // stops: [0.0, 1.0],
+              // tileMode: TileMode.clamp
+            ),
+          ),
+        ),
+
         elevation: 3,
-        iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.white),
+       // backgroundColor: Colors.white,
         title: Text(
           "Property",
-          style: TextStyle(fontSize: 16, color: Colors.black),
+          style: TextStyle(fontSize: 16, color: Colors.white),
         ),
 
       ),

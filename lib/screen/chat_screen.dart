@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:rebusel/Provider/memberProvider.dart';
 import 'package:rebusel/model/member_model.dart';
@@ -25,26 +26,39 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 28.0, top: 10),
-            child: CircleAvatar(
-              radius: 26,
-              child: CircleAvatar(
-                radius: 29,
-                backgroundColor: Colors.grey[200],
-                backgroundImage: const AssetImage("assets/images/logo.jpeg"),
-              ),
+
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [HexColor("#29AAE1"), HexColor("#283B8E"),HexColor("#3454D1")],
+              begin: const FractionalOffset(0.0, 0.0,),
+
+              // stops: [0.0, 1.0],
+              // tileMode: TileMode.clamp
             ),
           ),
+        ),
+
+        actions: [
+          // Padding(
+          //   padding: const EdgeInsets.only(right: 28.0, top: 10),
+          //   child: CircleAvatar(
+          //     radius: 26,
+          //     child: CircleAvatar(
+          //       radius: 29,
+          //       backgroundColor: Colors.grey[200],
+          //       backgroundImage: const AssetImage("assets/images/logo.jpeg"),
+          //     ),
+          //   ),
+          // ),
         ],
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.white),
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
           "Property",
-          style: TextStyle(color: Colors.black, fontSize: 16),
+          style: TextStyle(color: Colors.white, fontSize: 16),
         ),
       ),
       drawer: const Drawer(),
@@ -127,7 +141,7 @@ class _ChatScreenState extends State<ChatScreen> {
               if (value.memberModel == null) {
                 return Padding(
                   padding: const EdgeInsets.only(top: 100.0,left: 60),
-                  child: const CircularProgressIndicator(color: Colors.purple,),
+                  child: const CircularProgressIndicator(color:  Colors.blueAccent),
                 );
               } else {
                 return value.memberModel!.conversations!.isEmpty && !value.error
@@ -170,8 +184,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                                                   Radius
                                                                       .circular(
                                                                           20)),
-                                                          color: Colors
-                                                              .deepPurple),
+                                                          color:  Colors.blueAccent),
                                                   width: 22,
                                                   height: 22,
                                                   child: Center(
@@ -184,7 +197,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                                 )
                                               : const Icon(
                                                   Icons.check_circle_outline,
-                                                  color: Colors.deepPurple,
+                                                  color: Colors.blueAccent,
                                                 )
                                         ],
                                       ),

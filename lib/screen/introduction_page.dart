@@ -69,13 +69,22 @@ class IntroDuctionScreen extends StatelessWidget {
             },
             child: Center(
               child: Container(
+                
                 alignment: Alignment.center,
                 height: 45,
                 width: 200,
                 decoration: BoxDecoration(
-                  color: HexColor("#29AAE1"),
                   borderRadius: BorderRadius.circular(15.0),
+                  gradient: LinearGradient(
+                      colors: [HexColor("#29AAE1"), HexColor("#283B8E"),HexColor("#3454D1")],
+                    begin: const FractionalOffset(0.0, 0.0,),
+
+                      // stops: [0.0, 1.0],
+                      // tileMode: TileMode.clamp
+                  ),
+                
                 ),
+                
                 child: Text(
                   "Lets Go",
                   style: TextStyle(fontSize: 15, color: Colors.white),

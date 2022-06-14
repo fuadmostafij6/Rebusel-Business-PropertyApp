@@ -1,6 +1,6 @@
-
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:rebusel/screen/all_order_screen.dart';
 import 'package:rebusel/screen/complete_screen.dart';
 import 'package:rebusel/screen/pending_order_screen.dart';
@@ -29,14 +29,34 @@ class _ExampleState extends State<Example> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 3,
-        iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
         title: Text(
-          "My Order",
-          style: TextStyle(fontSize: 16, color: Colors.black),
+          "My order",
+          style: TextStyle(fontSize: 16, color: Colors.white),
         ),
+
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                HexColor("#29AAE1"),
+                HexColor("#283B8E"),
+                HexColor("#3454D1")
+              ],
+              begin: const FractionalOffset(
+                0.0,
+                0.0,
+              ),
+
+              // stops: [0.0, 1.0],
+              // tileMode: TileMode.clamp
+            ),
+          ),
+        ),
+        elevation: 3,
+        iconTheme: IconThemeData(color: Colors.white),
+
       ),
       drawer: Drawer(),
       body: SafeArea(
@@ -47,11 +67,11 @@ class _ExampleState extends State<Example> {
             child: Column(
               children: <Widget>[
                 ButtonsTabBar(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Colors.blueAccent,
                   unselectedBackgroundColor: Colors.grey[300],
                   unselectedLabelStyle: TextStyle(color: Colors.black),
-                  labelStyle:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  labelStyle: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
                   tabs: [
                     Tab(
                       text: "         All           ",
@@ -77,12 +97,11 @@ class _ExampleState extends State<Example> {
                 Expanded(
                   child: TabBarView(
                     children: <Widget>[
-                   AllScreen(),
-                     PendiingOrderScreen(),
-                    ProcessOrderScreen(),
+                      AllScreen(),
+                      PendiingOrderScreen(),
+                      ProcessOrderScreen(),
                       CompleteScreen(),
-                     RejectScreen(),
-
+                      RejectScreen(),
                     ],
                   ),
                 ),

@@ -28,7 +28,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Scaffold(
       body: screen[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.deepPurple,
+        selectedItemColor:  Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
