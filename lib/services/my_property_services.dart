@@ -24,7 +24,7 @@ class MyPropertyServices {
 
     if (response.statusCode == 200) {
       var allAds = response.body;
-      print("Response ___${response.body}");
+      print("Response ___${response.body} properties");
 
       return myPropertyModelFromJson(allAds);
     } else {

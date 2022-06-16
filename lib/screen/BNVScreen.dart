@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rebusel/screen/profile_screen.dart';
 import 'package:rebusel/screen/property_screen.dart';
 import 'package:rebusel/screen/wallet_screen.dart';
-
 import '../model/profile_model.dart';
+import 'OrderDetails.dart';
 import 'chat_screen.dart';
 import 'order_screen.dart';
 
@@ -18,17 +18,18 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 0;
   final screen = [
     const ChatScreen(),
-    MyPropertyScreen(),
+    const MyPropertyScreen(),
     Example(),
-    WalletScreen(),
-    ProfileScreen()
+    // const WalletScreen(),
+    const OrderDetails(),
+    const ProfileScreen()
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: screen[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor:  Colors.blueAccent,
+        selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,

@@ -26,19 +26,24 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [HexColor("#29AAE1"), HexColor("#283B8E"),HexColor("#3454D1")],
-              begin: const FractionalOffset(0.0, 0.0,),
+              colors: [
+                HexColor("#29AAE1"),
+                HexColor("#283B8E"),
+                HexColor("#3454D1")
+              ],
+              begin: const FractionalOffset(
+                0.0,
+                0.0,
+              ),
 
               // stops: [0.0, 1.0],
               // tileMode: TileMode.clamp
             ),
           ),
         ),
-
         actions: [
           // Padding(
           //   padding: const EdgeInsets.only(right: 28.0, top: 10),
@@ -63,7 +68,7 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       drawer: const Drawer(),
       body: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,10 +144,13 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
             Consumer<MemberProvider>(builder: (context, value, child) {
               if (value.memberModel == null) {
-                return Padding(
-                  padding: const EdgeInsets.only(top: 100.0,left: 60),
-                  child: const CircularProgressIndicator(color:  Colors.blueAccent),
-                );
+                return const Padding(
+                    padding: EdgeInsets.only(top: 100.0, left: 60),
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.purple,
+                      ),
+                    ));
               } else {
                 return value.memberModel!.conversations!.isEmpty && !value.error
                     ? const Center(
@@ -184,7 +192,8 @@ class _ChatScreenState extends State<ChatScreen> {
                                                                   Radius
                                                                       .circular(
                                                                           20)),
-                                                          color:  Colors.blueAccent),
+                                                          color: Colors
+                                                              .blueAccent),
                                                   width: 22,
                                                   height: 22,
                                                   child: Center(
