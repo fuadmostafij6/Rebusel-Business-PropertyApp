@@ -278,37 +278,70 @@ class _LoginScreenState extends State<LoginScreen> {
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => BottomNavBar(),
           ));
-        } else if (_loginRes.status == 400) {
+        } else  {
           var error = json.decode(response.body);
 
-          print("ERROR___${error['errors']['email'][0]}");
+       //   print("ERROR___${error['errors']['email'][0]}");
+          print("ERROR___ Wrong${error['msg']}");
 
-          Get.defaultDialog(
-              title: "Error!",
-              content: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 18.0),
-                        child: Text("${error['errors']['email'][0]}"),
+
+          if(_loginRes.status==400){
+            Get.defaultDialog(
+                title: "Error!",
+                content: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 18.0,bottom: 10),
+                          child: Text("${error['errors']['email'][0]}"),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 0.0),
-                      child: Center(
-                        child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pop(context, true);
-                            },
-                            child: Text("OK")),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 0.0),
+                        child: Center(
+                          child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pop(context, true);
+                              },
+                              child: Text("OK")),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ));
+                    ],
+                  ),
+                ));
+          }else if(_loginRes.status==404){
+            Get.defaultDialog(
+                title: "Error!",
+                content: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 18.0,bottom: 10),
+                          child: Text("${error['msg']}"),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 0.0),
+                        child: Center(
+                          child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pop(context, true);
+                              },
+                              child: Text("OK")),
+                        ),
+                      ),
+                    ],
+                  ),
+                ));
+          }
+
+
 
           // Fluttertoast.showToast(
           //     msg: "dhshshsh",
@@ -319,19 +352,19 @@ class _LoginScreenState extends State<LoginScreen> {
           //     textColor: Colors.white,
           //     fontSize: 16.0);
         }
-      } else if (_loginRes.status == 400) {
-        var error = json.decode(response.body);
-
-        print("ERROR___${error['errors']['email'][0]}");
-
-        Fluttertoast.showToast(
-            msg: "${error['errors']['email'][0]}",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.CENTER,
-            timeInSecForIosWeb: 1,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-            fontSize: 16.0);
+      } else  {
+        // var error = json.decode(response.body);
+        //
+        // print("ERROR___${error['errors']['email'][0]}");
+        //
+        // Fluttertoast.showToast(
+        //     msg: "${error['errors']['email'][0]}",
+        //     toastLength: Toast.LENGTH_SHORT,
+        //     gravity: ToastGravity.CENTER,
+        //     timeInSecForIosWeb: 1,
+        //     backgroundColor: Colors.red,
+        //     textColor: Colors.white,
+        //     fontSize: 16.0);
       }
       print(response.body);
     } on SocketException {

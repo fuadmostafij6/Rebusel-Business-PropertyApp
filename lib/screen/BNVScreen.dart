@@ -20,8 +20,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
     const ChatScreen(),
     const MyPropertyScreen(),
     Example(),
-    // const WalletScreen(),
-    const OrderDetails(),
+     const WalletScreen(),
+   // const OrderDetails(),
     const ProfileScreen()
   ];
   @override

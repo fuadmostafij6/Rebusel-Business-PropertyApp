@@ -110,25 +110,25 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
               ),
             ),
-            Row(
-              children: const [
-                Padding(
-                  padding: EdgeInsets.only(top: 22.0, left: 20, right: 30),
-                  child: Center(
-                    child: Text(
-                      "Recent",
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 15.0,
-            ),
+            // Row(
+            //   children: const [
+            //     Padding(
+            //       padding: EdgeInsets.only(top: 22.0, left: 20, right: 30),
+            //       child: Center(
+            //         child: Text(
+            //           "Recent",
+            //           style: TextStyle(
+            //               fontSize: 20,
+            //               color: Colors.black,
+            //               fontWeight: FontWeight.w400),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            // const SizedBox(
+            //   height: 15.0,
+            // ),
             const Padding(
               padding: EdgeInsets.only(
                 top: 22.0,

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 import 'package:rebusel/Provider/memberProvider.dart';
@@ -75,7 +76,25 @@ class _SendMessageState extends State<SendMessage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purple[800],
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                HexColor("#29AAE1"),
+                HexColor("#283B8E"),
+                HexColor("#3454D1")
+              ],
+              begin: const FractionalOffset(
+                0.0,
+                0.0,
+              ),
+
+              // stops: [0.0, 1.0],
+              // tileMode: TileMode.clamp
+            ),
+          ),
+        ),
+      //  backgroundColor: Colors.purple[800],
         title: Text(widget.name),
       ),
       body: Column(
