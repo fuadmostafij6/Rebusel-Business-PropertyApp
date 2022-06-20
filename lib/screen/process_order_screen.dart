@@ -28,7 +28,7 @@ class _ProcessOrderScreenState extends State<ProcessOrderScreen> {
     _myOrderController.getDataCalling();
     return  Obx((){
       if(_myOrderController.loader.value){
-        return Center(child: CircularProgressIndicator(color: Colors.purple,),);
+        return Center(child: CircularProgressIndicator(color: Colors.blue,),);
       }else{
         return _myOrderController.orderList.value.data!.orders!.isNotEmpty ? ListView.builder(
           shrinkWrap: true,

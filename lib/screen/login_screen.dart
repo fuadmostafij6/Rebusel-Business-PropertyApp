@@ -267,6 +267,8 @@ class _LoginScreenState extends State<LoginScreen> {
       if (response.statusCode == 200) {
         if (_loginRes.status == 200) {
           MyPrefs.setToken(_loginRes.user!.apiToken.toString());
+          MyPrefs.setId(_loginRes.user!.id.toString());
+          MyPrefs.setUserType(_loginRes.user!.userType.toString());
           Fluttertoast.showToast(
               msg: "Login Successfully",
               toastLength: Toast.LENGTH_SHORT,

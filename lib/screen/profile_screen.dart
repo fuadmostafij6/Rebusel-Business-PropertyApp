@@ -73,7 +73,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           if (value.profileModel == null) {
             return Center(
                 child: const CircularProgressIndicator(
-              color: Colors.purple,
+              color: Colors.blue,
             ));
           } else {
             return value.error
@@ -146,10 +146,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         const SizedBox(
                           height: 30.0,
                         ),
-
-
                         Padding(
-                          padding: const EdgeInsets.only(left: 18.0,right: 18.0,bottom: 0),
+                          padding: const EdgeInsets.only(
+                              left: 18.0, right: 18.0, bottom: 0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -164,15 +163,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   width: MediaQuery.of(context).size.width,
                                   child: Card(
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: [
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: const [
                                         Text(
                                           "Property owner",
                                           style: TextStyle(
                                               fontSize: 16, color: Colors.blue),
                                         ),
-                                        SizedBox(height: 6,),
+                                        SizedBox(
+                                          height: 6,
+                                        ),
                                         Text(
                                           "Agent Type",
                                           style: TextStyle(
@@ -193,15 +196,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   width: MediaQuery.of(context).size.width,
                                   child: Card(
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Text(
                                           "Madhu City",
                                           style: TextStyle(
                                               fontSize: 16, color: Colors.blue),
                                         ),
-                                        SizedBox(height: 6,),
+                                        SizedBox(
+                                          height: 6,
+                                        ),
                                         Text(
                                           "Agent Name",
                                           style: TextStyle(

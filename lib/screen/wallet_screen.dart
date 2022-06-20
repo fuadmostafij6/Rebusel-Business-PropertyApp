@@ -50,10 +50,10 @@ class _WalletScreenState extends State<WalletScreen> {
           primary: false,
           children: [
             CreditCardWidget(
-              cardNumber: "000000000",
-              expiryDate: "MM/DD",
+              cardNumber: '',
+              expiryDate: "",
               cardHolderName: "Abir",
-              cvvCode: "1234",
+              cvvCode: "",
               showBackView: false,
               obscureCardNumber: true,
               obscureCardCvv: true,

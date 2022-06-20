@@ -145,12 +145,11 @@ class _ChatScreenState extends State<ChatScreen> {
             Consumer<MemberProvider>(builder: (context, value, child) {
               if (value.memberModel == null) {
                 return const Padding(
-                    padding: EdgeInsets.only(top: 100.0, left: 60),
+                    padding: EdgeInsets.only(top: 100.0, left: 40),
                     child: Center(
-                      child: CircularProgressIndicator(
-                        color: Colors.purple,
-                      ),
-                    ));
+                      child:               CircularProgressIndicator(color: Colors.blue,),
+
+                ));
               } else {
                 return value.memberModel!.conversations!.isEmpty && !value.error
                     ? const Center(
@@ -163,21 +162,22 @@ class _ChatScreenState extends State<ChatScreen> {
                             primary: false,
                             itemCount: value.memberModel!.conversations!.length,
                             itemBuilder: (context, index) {
+                              var data = value.memberModel!.conversations![index];
                               return ListView.builder(
                                 shrinkWrap: true,
                                 primary: false,
-                                itemCount: value.memberModel!
-                                    .conversations![index].members!.length,
+                                itemCount: data.members!.length,
                                 padding: EdgeInsets.zero,
                                 itemBuilder: (context, index2) {
+                                  var data2 = data.members![index2];
                                   return InkWell(
                                     onTap: () => Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => SendMessage(
                                                   name:
-                                                      '${value.memberModel!.conversations![index].members![index2].name}',
-                                                  id: '${value.memberModel!.conversations![index].members![index2].userId}',
+                                                      '${data2.name}',
+                                                  id: '${data.id}',
                                                 ))),
                                     child: ListTile(
                                       trailing: Column(
@@ -198,7 +198,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                                   height: 22,
                                                   child: Center(
                                                     child: Text(
-                                                      "${value.memberModel!.conversations![index].members![index2].seen}",
+                                                      "${data2.seen}",
                                                       style: const TextStyle(
                                                           color: Colors.white),
                                                     ),
@@ -220,9 +220,9 @@ class _ChatScreenState extends State<ChatScreen> {
                                         ),
                                       ),
                                       title: Text(
-                                          "${value.memberModel!.conversations![index].members![index2].name}"),
+                                          "${data2.name}"),
                                       subtitle: Text(
-                                          "${value.memberModel!.conversations![index].members![index2].email}"),
+                                          "${data2.email}"),
                                     ),
                                   );
                                 },

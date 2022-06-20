@@ -47,11 +47,60 @@ class _TransactionHistoryState extends State<TransactionHistory> {
         itemBuilder: (_,index){
           return Column(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(10.0),
+              Card(
+                elevation: 4,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    borderRadius: BorderRadius.circular(10.0),
 
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset("assets/images/pay.png",height: 50,width: 60,),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("paypal",style: TextStyle(fontSize: 16,color: Colors.black),),
+                            SizedBox(height: 5,),
+                            Text("June 20,2022",style: TextStyle(fontSize: 14,color: Colors.black),),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 18.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Rebusel Amount",style: TextStyle(fontSize: 13,color: Colors.black),),
+                            SizedBox(height: 5,),
+                            Center(child: Text("400",style: TextStyle(fontSize: 12,color: Colors.black),textAlign: TextAlign.center,)),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 18.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Peso",style: TextStyle(fontSize: 13,color: Colors.black),),
+                            SizedBox(height: 5,),
+                            Text("400",style: TextStyle(fontSize: 12,color: Colors.black),),
+                          ],
+                        ),
+                      ),
+
+                    ],
+                  ),
                 ),
               )
             ],
